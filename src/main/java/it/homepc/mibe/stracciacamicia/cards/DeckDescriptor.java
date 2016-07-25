@@ -12,17 +12,17 @@ import java.util.Iterator;
  *
  * @author mirco
  */
-public class DeckDescriptor implements Iterable<DeckDescriptor.DeckDescriptorEntry<Suit, String[]>>{
-    private ArrayList<DeckDescriptorEntry<Suit, String[]>> descriptor;
+public class DeckDescriptor implements Iterable<DeckDescriptor.DeckDescriptorEntry<Seed, String[]>>{
+    private ArrayList<DeckDescriptorEntry<Seed, String[]>> descriptor;
     
     public DeckDescriptor (String[] cardNames) {
         descriptor = new ArrayList<>();
-        for (Suit s : Suit.class.getEnumConstants()) {
+        for (Seed s : Seed.class.getEnumConstants()) {
             descriptor.add(new DeckDescriptorEntry<>(s, cardNames));
         }
     }
     
-    public DeckDescriptor (Suit[] cardSuits, String[]... cardNames ) {
+    public DeckDescriptor (Seed[] cardSuits, String[]... cardNames ) {
         descriptor = new ArrayList<>();
         int totSuits = cardSuits.length;
         int totCardNames = cardNames.length;
@@ -30,7 +30,7 @@ public class DeckDescriptor implements Iterable<DeckDescriptor.DeckDescriptorEnt
         int s = 0, n = 0;
         boolean stop = false;
         while (!stop) {
-            Suit currentSuit = cardSuits[s];
+            Seed currentSuit = cardSuits[s];
             String[] currentCardNames = cardNames[n];
             descriptor.add(new DeckDescriptorEntry<>(currentSuit, currentCardNames));
             
@@ -41,7 +41,7 @@ public class DeckDescriptor implements Iterable<DeckDescriptor.DeckDescriptorEnt
     }
 
     @Override
-    public Iterator<DeckDescriptorEntry<Suit, String[]>> iterator() {
+    public Iterator<DeckDescriptorEntry<Seed, String[]>> iterator() {
         return descriptor.iterator();
     }
         

@@ -9,6 +9,6 @@ package it.homepc.mibe.stracciacamicia.cards;
  *
  * @author mirco
  */
-public enum Suit {
+public enum Seed {
     HEARTS, DIAMONDS, CLUBS, SPADES 
 }

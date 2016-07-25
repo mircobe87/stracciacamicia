@@ -11,17 +11,17 @@ package it.homepc.mibe.stracciacamicia.cards;
  */
 public class Card implements Comparable {
     private int value;
-    private Suit suit;
+    private Seed suit;
     private String name;
     
-    public Card(int v, String n, Suit s) throws IllegalArgumentException {
+    public Card(int v, String n, Seed s) throws IllegalArgumentException {
         if (n.length() == 0) throw new IllegalArgumentException();
         value = v;
         suit = s;
         name = n;
     }
     
-    public Suit getSuit() {
+    public Seed getSuit() {
         return suit;
     }
     
