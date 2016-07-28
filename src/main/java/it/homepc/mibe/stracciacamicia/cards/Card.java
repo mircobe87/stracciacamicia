@@ -45,7 +45,7 @@ public class Card implements Comparable {
         }
     }
     
-    public int compareSuiteTo(Object o) {
+    public int compareSeedTo(Object o) {
         if (! (o instanceof Card)) throw new IllegalArgumentException();
         Card param = (Card)o;
         return this.getSeed().compareTo(param.getSeed());
