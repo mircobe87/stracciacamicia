@@ -45,27 +45,27 @@ public class DeckDescriptor implements Iterable<DeckDescriptor.DeckDescriptorEnt
         return descriptor.iterator();
     }
         
-    public class DeckDescriptorEntry<K, V> {
+    public class DeckDescriptorEntry<S, N> {
         
-        private K k;
-        private V v;
+        private S seed;
+        private N cName;
         
-        public DeckDescriptorEntry(K suit, V cardNames) {
-            k = suit;
-            v = cardNames;
+        public DeckDescriptorEntry(S suit, N cardNames) {
+            seed = suit;
+            cName = cardNames;
         }
         
-        public K getSuit() {
-            return k;
-        }
-
-        public V getCardNames() {
-            return v;
+        public S getSeed() {
+            return seed;
         }
 
-        public V setCardNames(V cardNames) {
-            V oldValue = v;
-            v = cardNames;
+        public N getCardNames() {
+            return cName;
+        }
+
+        public N setCardNames(N cardNames) {
+            N oldValue = cName;
+            cName = cardNames;
             return oldValue;
         }
         

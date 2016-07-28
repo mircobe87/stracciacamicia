@@ -11,18 +11,19 @@ package it.homepc.mibe.stracciacamicia.cards;
  */
 public class Card implements Comparable {
     private int value;
-    private Seed suit;
+    private Seed seed;
     private String name;
     
     public Card(int v, String n, Seed s) throws IllegalArgumentException {
-        if (n.length() == 0) throw new IllegalArgumentException();
+        if (n == null || n.length() == 0) throw new IllegalArgumentException("A Card must have a name.");
+        if (s == null) throw new IllegalArgumentException("A Card must have a Seed.");
         value = v;
-        suit = s;
+        seed = s;
         name = n;
     }
     
-    public Seed getSuit() {
-        return suit;
+    public Seed getSeed() {
+        return seed;
     }
     
     public int getValue() {
@@ -37,17 +38,17 @@ public class Card implements Comparable {
     public int compareTo(Object o) {
         if (! (o instanceof Card)) throw new IllegalArgumentException();
         Card param = (Card)o;
-        if (this.getSuit().compareTo(param.getSuit()) == 0) {
+        if (this.getSeed().compareTo(param.getSeed()) == 0) {
             return this.getValue() - param.getValue();
         } else {
-            return this.getSuit().compareTo(param.getSuit());
+            return this.getSeed().compareTo(param.getSeed());
         }
     }
     
     public int compareSuiteTo(Object o) {
         if (! (o instanceof Card)) throw new IllegalArgumentException();
         Card param = (Card)o;
-        return this.getSuit().compareTo(param.getSuit());
+        return this.getSeed().compareTo(param.getSeed());
     }
 
     public int compareValueTo(Object o) {
@@ -58,7 +59,7 @@ public class Card implements Comparable {
     
     @Override
     public String toString() {
-        return this.getName() + ":" + this.getSuit() + "[" + this.getValue() + "]";
+        return this.getName() + ":" + this.getSeed() + "[" + this.getValue() + "]";
     }
     
 }
